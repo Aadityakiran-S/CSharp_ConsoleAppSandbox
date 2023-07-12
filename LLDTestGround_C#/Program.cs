@@ -1,18 +1,19 @@
 ﻿class Program
 {
+    string personName;
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World");
-
-        Program myProgram = new Program();
-        myProgram.PrintAllElementsInArray(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 });
+        Program myProgram = new("John");
+        myProgram.PrintMessage($"Hello {myProgram.personName}!");
     }
 
-    public void PrintAllElementsInArray(int[] input)
+    public Program(string name)
     {
-        foreach(var element in input)
-        {
-            Console.WriteLine(element);
-        }
+        personName = name;
+    }
+
+    private void PrintMessage(string message)
+    {
+        Console.WriteLine(message);
     }
 }
