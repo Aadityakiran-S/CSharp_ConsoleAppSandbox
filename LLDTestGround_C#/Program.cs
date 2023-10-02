@@ -1,19 +1,15 @@
-﻿class Program
-{
-    string personName;
-    static void Main(string[] args)
-    {
-        Program myProgram = new("John");
-        myProgram.PrintMessage($"Hello {myProgram.personName}!");
+﻿using System;
+using System.Collections.Generic;
+
+class Program {
+    static void Main(string[] args) {
+        MyProgram myProgram = new("John");
+        myProgram.PrintMessage("Hello World!");
     }
 
-    public Program(string name)
-    {
-        personName = name;
-    }
-
-    private void PrintMessage(string message)
-    {
-        Console.WriteLine(message);
+    public class MyProgram {
+        public string Name { get; private set;}
+        public MyProgram(string name) {  Name = name; }
+        public void PrintMessage(string message) { Console.WriteLine($"{Name} says: {message}"); }
     }
 }
