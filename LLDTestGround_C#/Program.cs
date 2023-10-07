@@ -15,15 +15,34 @@ class Program {
     {
         public Team battingTeam; public Team chasingTeam; 
         public ScoreManager scoreManager; public GameState currState;
-        public int totalBalls; public int currBalls;
+        public int totalBalls; public int currBalls; public int totalRuns;
+
         public ScoreBoard(Team _battingTeam, Team _chasingTeam, int _totalBalls)
         {
             battingTeam = _battingTeam; chasingTeam = _chasingTeam;
             scoreManager = new ScoreManager(battingTeam, chasingTeam); //Pass in batting and chasing team and all that
-            currState = GameState.BATTING; totalBalls = _totalBalls; currBalls = 0;
+            currState = GameState.BATTING; totalBalls = _totalBalls; currBalls = 0; totalRuns = 0;
         }
 
         //Function to execute the scoring per ball
+        public void UpdateScorePerBall()
+        {
+            if(currState == GameState.BATTING)
+            {
+                //Update batting and chasing using ScoreManager for batting and chasing team
+            }
+            else
+            {
+                //Decrement from totalScore when chasing
+            }
+
+            DisplayScore();
+        }
+
+        public void DisplayScore()
+        {
+            //Log the score
+        }
     }    
 
     public class ScoreManager
@@ -38,10 +57,18 @@ class Program {
     {
         //Conatins some batsmen and bowlers (or a list to keep them as they appear after each ball)
         LinkedList<Batsman> batsmen; LinkedList<Bowlwer> bowlwers;
-        public Team()
+        int currRuns;
+
+        public Team() { this.batsmen = new();  this.bowlwers = new(); currRuns = 0; }
+
+        public void UpdateBatsmen(/*Ball information*/)
         {
-            this.batsmen = new();
-            this.bowlwers = new();
+            
+        }
+
+        public void UpdateBowlers(/*Ball information*/)
+        {
+
         }
     }
 
